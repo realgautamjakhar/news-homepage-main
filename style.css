@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root {
+    --soft-orange: hsl(35, 77%, 62%);
+    --soft-red: hsl(5, 85%, 63%);
+
+    --off-white:hsl(36, 100%, 99%);
+    --gray-blue:hsl(233, 8%, 79%);
+    --dark-gray-blue:hsl(236, 13%, 42%);
+    --very-dark-blue:hsl(240, 100%, 5%);
+}
+h1 {
+    margin: 0;
+}
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+p{
+    font-size: 15px;
+}
+.main{
+    display: grid;
+    margin: 4rem;
+    align-items: center;
+    grid-template-areas: "header header header"
+                        "hero-img hero-img new"
+                        "heading heading-para new"
+                        "cards cards cards";
+    gap: 2rem;
+    justify-content: center;
+    grid-template-columns: repeat(3,minmax(auto,350px));
+    grid-template-rows: repeat(4,minmax(auto,auto));
+}
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header ul{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+.header ul li:hover{
+    cursor: pointer;
+    color: var(--soft-orange);
+}
+.hero-img{
+    grid-area: hero-img;
+    background-image: url(assets/images/image-web-3-desktop.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+}
+.heading{
+    grid-area: heading;
+    font-size: 2.4rem;
+    line-height:3.5rem;
+}
+
+.heading-para{
+    grid-area: heading-para;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+.heading-para button{
+    background-color: var(--very-dark-blue);
+    color: var(--off-white);
+    font-size: .75rem;
+    padding: 1rem 2rem 1rem 2rem;
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 700;
+    border: none;
+}
+.heading-para button:hover{
+    background-color: var(--soft-red);
+    cursor: pointer;
+    transition: all ease .5s;
+}
+.new {
+    grid-area: new;
+    color: var(--off-white);
+    background-color: var(--very-dark-blue);
+    display: flex;
+    height: auto;
+    /* gap: 1rem; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+.new h2{
+    font-size: 2.4rem;
+    margin: 0;
+    color: var(--soft-orange);
+}
+.new h4{
+    font-size: 1.2rem;
+    margin: 1rem 0rem 1rem 0rem;
+}
+.new  p{
+    line-height: 22px;
+    color: var(--gray-blue);
+    margin: 1rem 0rem 1rem 0rem;
+}
+.new h4:hover{
+    color: var(--soft-orange);
+}
+.new hr{
+    width: 100%;
+    background-color: var(--gray-blue);
+    height: 1px;
+    border: none;
+}
+
+.cards{
+    grid-area: cards;
+    display: flex;
+    justify-content: space-evenly;
+}
+.card {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: auto;
+    height: 120px;
+}
+.card img{
+    width: auto;
+    height: 100%;
+}
+.card h4,h5,p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.card h4{
+    font-size: 1.5rem;
+    color: var(--gray-blue);
+}
+.card h5 {
+    font-weight: 800;
+    font-size: 1rem;
+    margin-top: .75rem;
+    margin-bottom: .75rem;
+}
+.card h5:hover {
+    color:var(--soft-red);
+    cursor: pointer;
+}
+.card p{
+    color: var(--dark-gray-blue);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+header button{
+    display: none;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+}
+.menu{
+    display: none;
+}
+
+@media (width < 900px) {
+    .main{
+        grid-template-areas: "header ..."
+        "hero-img ..."
+        "heading ..."
+        "heading-para ..."
+        "new ..."
+        "cards ...";
+        gap: 0rem;
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin: 1rem;
+    }
+    .header{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .hero-img {
+        margin-bottom: 2rem;
+    }
+    .heading{
+        margin-bottom: 2rem;
+    }
+    .heading-para button {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .cards{
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+    
+    .header ul{
+        display: none;
+    }
+
+    header button{
+        display: revert;
+    }
+
+    .menu{
+        display: revert;
+        position: absolute;
+        right: 0;
+        width: 0;
+        z-index: 2;
+        background-color: white;
+        height: 100%;
+        overflow: hidden;
+    }
+    .menu nav{
+        margin-top: 50%;
+    }
+    .menu ul{
+        padding: 0;
+    }
+    .menu li{
+        padding: 1rem;
+        list-style: none;
+        font-weight: 700;
+    }
+    .close-btn{
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+    }
+}
